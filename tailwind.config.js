@@ -15,7 +15,7 @@ export default {
         'cinzel-medium': ['Cinzel-Medium', 'sans-serif'],
       },
       backgroundImage: {
-        'hero': "url('./src/assets/img/bg.jpg')"
+        'hero': "url('/src/assets/img/bg.jpg')"
       },
       backgroundPosition: {
         'top-center': 'center top -5rem',
