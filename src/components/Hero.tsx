@@ -4,8 +4,10 @@ type heroProps = {
 
 export const Hero = ({children}:heroProps) => {
   return (
-    <div className="w-screen h-[calc(100vh/2)] bg-hero bg-cover bg-center">
-      {children}
+    <section className="bg-top-center bg-cover bg-no-repeat bg-hero bg-gray-400 bg-blend-multiply w-full">
+    <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+        {children}
     </div>
+  </section>
   )
 }

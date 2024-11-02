@@ -12,7 +12,7 @@ function Navbar() {
           isActive ? "text-blue-700" : "text-black"
         }
       >
-        Home
+        Inicio
       </NavLink>
       <NavLink 
         to="/about"
@@ -20,10 +20,11 @@ function Navbar() {
           isActive ? "text-blue-700" : "text-black"
         }
       >
-        About
+        Nosotros
       </NavLink>
       </div>
     </nav>
+
   )
 }
 

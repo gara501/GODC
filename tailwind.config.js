@@ -3,6 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {
@@ -14,10 +15,15 @@ export default {
         'cinzel-medium': ['Cinzel-Medium', 'sans-serif'],
       },
       backgroundImage: {
-        'hero': "url('./src/assets/img/bg_mason.jpg')"
+        'hero': "url('./src/assets/img/bg.jpg')"
+      },
+      backgroundPosition: {
+        'top-center': 'center top -5rem',
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
 
