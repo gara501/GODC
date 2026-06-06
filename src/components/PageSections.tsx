@@ -11,7 +11,9 @@ type PageSectionsProps = {
 }
 
 const sectionClassName = (section: PageSection) =>
-  section.theme === 'dark' ? 'py-[100px] bg-slate-800 text-white' : 'py-[100px]'
+  section.theme === 'dark'
+    ? 'bg-[#080808] py-24 text-stone-100 md:py-36'
+    : 'bg-black py-24 text-stone-100 md:py-36'
 
 const sectionKey = (section: PageSection, index: number) => section.id || `${section.type}-${index}`
 
@@ -25,11 +27,15 @@ const TextSection = ({ section }: { section: PageSection }) => {
         <TwoBlocks>
           {image ? (
             <div className="flex-1">
-              <img src={image} alt={section.heading || ''} />
+              <img
+                src={image}
+                alt={section.heading || ''}
+                className="aspect-[4/5] w-full border border-white/10 object-cover grayscale"
+              />
             </div>
           ) : null}
-          <div className="text-3xl flex-1">
-            <p className="my-4 leading-10">{section.body}</p>
+          <div className="flex-1">
+            <p className="max-w-3xl text-xl leading-9 text-stone-300 md:text-2xl md:leading-10">{section.body}</p>
           </div>
         </TwoBlocks>
       </div>
@@ -40,8 +46,8 @@ const TextSection = ({ section }: { section: PageSection }) => {
     <div className={sectionClassName(section)}>
       {section.heading ? <BlockTitle title={section.heading} /> : null}
       <Block>
-        <div className="text-3xl">
-          <p className="my-4 leading-10">{section.body}</p>
+        <div className="max-w-5xl">
+          <p className="text-xl leading-9 text-stone-300 md:text-3xl md:leading-[1.45]">{section.body}</p>
         </div>
       </Block>
     </div>
@@ -52,11 +58,14 @@ const PrinciplesSection = ({ section }: { section: PageSection }) => (
   <div className={sectionClassName(section)}>
     {section.heading ? <BlockTitle title={section.heading} /> : null}
     <Block>
-      <div className="flex-col">
-        {(section.items || []).map((item, index) => (
-          <div className={index < (section.items || []).length - 1 ? 'mb-[100px]' : ''} key={item.id || item.heading}>
-            <h3 className="md:text-4xl xl:text-5xl">{item.heading}</h3>
-            <p className="text-3xl my-4 leading-10">{item.body}</p>
+      <div className="grid gap-16">
+        {(section.items || []).map((item) => (
+          <div
+            className="grid gap-6 border-t border-white/10 pt-8 md:grid-cols-[minmax(220px,0.8fr)_1.7fr]"
+            key={item.id || item.heading}
+          >
+            <h3 className="text-2xl font-cinzel-bold leading-tight text-stone-100 md:text-4xl">{item.heading}</h3>
+            <p className="text-xl leading-9 text-stone-300 md:text-2xl md:leading-10">{item.body}</p>
           </div>
         ))}
       </div>
@@ -68,8 +77,8 @@ const LocationSection = ({ section }: { section: PageSection }) => (
   <div className={sectionClassName(section)}>
     {section.heading ? <BlockTitle title={section.heading} /> : null}
     <Block>
-      <div className="text-2xl text-center">
-        <p className="my-4 leading-10">{section.body}</p>
+      <div className="max-w-4xl">
+        <p className="text-2xl leading-10 text-stone-300 md:text-4xl md:leading-tight">{section.body}</p>
       </div>
     </Block>
   </div>

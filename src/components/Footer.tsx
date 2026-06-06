@@ -7,18 +7,18 @@ type FooterProps = {
 
 export const Footer = ({ footer }: FooterProps) => {
   return (
-    <footer className="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
-      <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+    <footer className="border-t border-white/10 bg-[#050505]">
+      <div className="mx-auto w-full max-w-screen-xl px-6 py-10 md:px-12 md:py-14">
         <div className="sm:flex sm:items-center sm:justify-between">
           <a className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse" href={footer.websiteUrl}>
-            <img src={godc} className="w-[200px]" alt="logo" />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{footer.motto}</span>
+            <img src={godc} className="w-32 brightness-125 md:w-40" alt="logo" />
+            <span className="self-center text-lg font-semibold text-stone-100 md:text-2xl">{footer.motto}</span>
           </a>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span className="block text-lg text-gray-500 sm:text-center dark:text-gray-400">
+        <hr className="my-8 border-white/10" />
+        <span className="block text-sm uppercase tracking-[0.18em] text-stone-500 sm:text-center">
           {footer.copyright}{' '}
-          <a href={footer.websiteUrl} className="hover:underline">
+          <a href={footer.websiteUrl} className="text-stone-300 transition-colors hover:text-white">
             {footer.organizationName}
           </a>
           . Derechos Reservados.

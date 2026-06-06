@@ -29,10 +29,38 @@
 
 html {
   font-size: 100%;
+  scroll-behavior: smooth;
+  background: #000;
+}
+
+body {
+  min-width: 320px;
+  background: #000;
+  color: #f5f5f4;
+}
+
+::selection {
+  background: rgba(248, 113, 113, 0.35);
+  color: #fff;
 }
 
 @layer base {
   h1 {
-    @apply font-cinzel-bold text-[6rem];
+    @apply font-cinzel-bold;
   }
+}
+
+.hero-stage {
+  --hero-progress: 0;
+}
+
+.hero-bg {
+  transform: scale(calc(1 + (var(--hero-progress) * 0.08)));
+  transform-origin: center top;
+}
+
+.hero-content {
+  opacity: calc(1 - (var(--hero-progress) * 0.45));
+  transform: translate3d(0, calc(var(--hero-progress) * -48px), 0) scale(calc(1 - (var(--hero-progress) * 0.035)));
+  transform-origin: left bottom;
 }

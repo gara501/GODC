@@ -27,25 +27,37 @@ function App() {
   }, [])
 
   return (
-    <>
-      <div className="bg-white">
-        <div className="container mx-auto py-4">
+    <div className="min-h-screen bg-black text-stone-100">
+      <div className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/55 backdrop-blur-xl">
+        <div className="mx-auto max-w-screen-2xl px-6 py-4 md:px-12">
           <Navbar navigation={siteSettings.navigation} />
         </div>
       </div>
       <Hero>
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-6xl lg:text-7xl">
-          {siteSettings.hero.title}
-        </h1>
-        <p className="mb-8 text-xl font-bold text-gray-300 lg:text-5xl sm:px-16 lg:px-48">
+        <p
+          className="mb-8 text-sm uppercase tracking-[0.32em] text-red-300/80 md:text-base"
+          data-hero-reveal
+        >
           {siteSettings.hero.subtitle}
         </p>
+        <h1
+          className="max-w-5xl text-5xl font-extrabold leading-[0.95] text-stone-50 md:text-7xl lg:text-[7.5rem]"
+          data-hero-reveal
+        >
+          {siteSettings.hero.title}
+        </h1>
+        <p
+          className="mt-8 max-w-3xl text-lg leading-8 text-stone-300 md:text-2xl md:leading-10"
+          data-hero-reveal
+        >
+          Una obediencia masónica de pensamiento libre, tradición viva y trabajo fraternal.
+        </p>
       </Hero>
-      <main>
+      <main id="content" className="bg-black">
         <Outlet />
       </main>
       <Footer footer={siteSettings.footer} />
-    </>
+    </div>
   )
 }
 
