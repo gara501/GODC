@@ -73,16 +73,36 @@ const PrinciplesSection = ({ section }: { section: PageSection }) => (
   </div>
 )
 
-const LocationSection = ({ section }: { section: PageSection }) => (
-  <div className={sectionClassName(section)}>
-    {section.heading ? <BlockTitle title={section.heading} /> : null}
-    <Block>
-      <div className="max-w-4xl">
-        <p className="text-2xl leading-10 text-stone-300 md:text-4xl md:leading-tight">{section.body}</p>
-      </div>
-    </Block>
-  </div>
-)
+const LocationSection = ({ section }: { section: PageSection }) => {
+  const address = (section.body || 'Cra 8a #17-22 Centro de Bogotá')
+    .replace(/\s*-\s*Tel(?:e|é)fono:.*$/i, '')
+    .replace(/\.+$/, '')
+    .trim()
+  const mapURL = `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`
+
+  return (
+    <div className={sectionClassName(section)}>
+      {section.heading ? <BlockTitle title={section.heading} /> : null}
+      <Block>
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.4fr] lg:items-start">
+          <div>
+            <p className="text-lg leading-8 text-stone-300 md:text-2xl md:leading-9">{address}</p>
+          </div>
+          <div className="overflow-hidden border border-white/10 bg-[#0b0b0b]">
+            <iframe
+              allowFullScreen
+              className="h-[360px] w-full grayscale invert-[0.9] md:h-[460px]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              src={mapURL}
+              title={`Mapa de ${address}`}
+            />
+          </div>
+        </div>
+      </Block>
+    </div>
+  )
+}
 
 const TestimonialSection = ({ section }: { section: PageSection }) => {
   const testimonial = section.testimonial || {}
