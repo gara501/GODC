@@ -51,7 +51,7 @@ export const NewsSection = ({ news }: NewsSectionProps) => {
   }
 
   return (
-    <section className="border-y border-white/10 bg-[#060606] py-24 text-stone-100 md:py-36">
+    <section id="noticias" className="scroll-mt-24 border-y border-white/10 bg-[#060606] py-24 text-stone-100 md:py-36">
       <div className="mx-auto w-full max-w-screen-xl px-6 md:px-12">
         <div className="mb-14 grid gap-8 border-t border-white/10 pt-8 md:grid-cols-[120px_1fr] md:gap-12">
           <p className="text-xs uppercase tracking-[0.34em] text-red-300/80">Noticias</p>

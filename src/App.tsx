@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import { Footer } from './components/Footer'
 import { Hero } from './components/Hero'
 import Navbar from './components/Navbar'
 import { defaultSiteSettings, getSiteSettings, type SiteSettings } from './lib/cms'
 
 function App() {
+  const location = useLocation()
   const [siteSettings, setSiteSettings] = useState<SiteSettings>(defaultSiteSettings)
 
   useEffect(() => {
@@ -25,6 +26,41 @@ function App() {
       isMounted = false
     }
   }, [])
+
+  useEffect(() => {
+    if (!location.hash) {
+      return
+    }
+
+    const targetId = decodeURIComponent(location.hash.slice(1))
+    let attempts = 0
+    let timeout: number | undefined
+
+    const scrollToTarget = () => {
+      const target = document.getElementById(targetId)
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        })
+        return
+      }
+
+      if (attempts < 10) {
+        attempts += 1
+        timeout = window.setTimeout(scrollToTarget, 50)
+      }
+    }
+
+    timeout = window.setTimeout(scrollToTarget, 0)
+
+    return () => {
+      if (timeout) {
+        window.clearTimeout(timeout)
+      }
+    }
+  }, [location.hash, location.pathname])
 
   return (
     <div className="min-h-screen bg-black text-stone-100">

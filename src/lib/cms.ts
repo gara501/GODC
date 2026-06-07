@@ -133,6 +133,10 @@ export const defaultSiteSettings: SiteSettings = {
       label: 'Nosotros',
       href: '/about',
     },
+    {
+      label: 'Noticias',
+      href: '/#noticias',
+    },
   ],
   footer: {
     motto: 'A:.G:.D:.G:.A:.D:.U:.',
