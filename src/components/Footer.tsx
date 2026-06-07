@@ -6,6 +6,8 @@ type FooterProps = {
 }
 
 export const Footer = ({ footer }: FooterProps) => {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="border-t border-white/10 bg-[#050505]">
       <div className="mx-auto w-full max-w-screen-xl px-6 py-10 md:px-12 md:py-14">
@@ -17,7 +19,7 @@ export const Footer = ({ footer }: FooterProps) => {
         </div>
         <hr className="my-8 border-white/10" />
         <span className="block text-sm uppercase tracking-[0.18em] text-stone-500 sm:text-center">
-          {footer.copyright}{' '}
+          © {currentYear}{' '}
           <a href={footer.websiteUrl} className="text-stone-300 transition-colors hover:text-white">
             {footer.organizationName}
           </a>
