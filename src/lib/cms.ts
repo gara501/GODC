@@ -233,7 +233,7 @@ export const defaultPages: Record<'home' | 'about', CMSPage> = {
         theme: 'light',
         layout: 'single',
         heading: 'Donde nos ubicamos',
-        body: 'Cra 8a #17-22 Centro de Bogotá',
+        body: 'Carrera 8A #17-22, Bogotá, Colombia',
       },
     ],
   },

@@ -74,7 +74,8 @@ const PrinciplesSection = ({ section }: { section: PageSection }) => (
 )
 
 const LocationSection = ({ section }: { section: PageSection }) => {
-  const address = (section.body || 'Cra 8a #17-22 Centro de Bogotá')
+  const address = (section.body || 'Carrera 8A #17-22, Bogotá, Colombia')
+    .replace('Cra 8a #17-22 Centro de Bogotá', 'Carrera 8A #17-22, Bogotá, Colombia')
     .replace(/\s*-\s*Tel(?:e|é)fono:.*$/i, '')
     .replace(/\.+$/, '')
     .trim()
