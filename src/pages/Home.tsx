@@ -9,8 +9,8 @@ export const Home = () => {
 
   return (
     <>
-      <PageSections page={page} />
       <NewsSection news={news} />
+      <PageSections page={page} />
     </>
   )
 }
