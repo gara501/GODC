@@ -60,7 +60,7 @@ export const NewsSection = ({ news }: NewsSectionProps) => {
               Actualidad del Gran Oriente
             </h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-stone-400">
-              Eventos, comunicados y encuentros actualizados desde el CMS.
+              Eventos, comunicados y encuentros del G:.O:.D:.C:.
             </p>
           </div>
         </div>
